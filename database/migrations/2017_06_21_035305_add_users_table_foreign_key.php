@@ -13,7 +13,7 @@ class AddUsersTableForeignKey extends Migration
      */
     public function up()
     {
-        Schema::table('users',function(Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->foreign('dept_id')->references('id')->on('dept');
         });
     }
@@ -25,6 +25,8 @@ class AddUsersTableForeignKey extends Migration
      */
     public function down()
     {
-        //
+//        Schema::table('users', function (Blueprint $table) {
+//            $table->dropForeign('users_dept_id_foreign');
+//        });
     }
 }

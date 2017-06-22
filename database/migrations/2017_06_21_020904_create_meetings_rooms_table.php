@@ -34,6 +34,10 @@ class CreateMeetingsRoomsTable extends Migration
      */
     public function down()
     {
+        Schema::table('meetings_meetingroom', function (Blueprint $table) {
+            $table->dropForeign('meetings_meetingroom_meeting_id_foreign');
+            $table->dropForeign('meetings_meetingroom_room_id_foreign');
+        });
         Schema::dropIfExists('meetings_meetingroom');
     }
 }

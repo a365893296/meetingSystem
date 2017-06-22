@@ -34,6 +34,10 @@ class CreateUsersMeetingsTable extends Migration
      */
     public function down()
     {
+        Schema::table('users_meetings',function(Blueprint $table){
+            $table->dropForeign('users_meetings_user_id_foreign') ;
+            $table->dropForeign('users_meetings_meeting_id_foreign') ;
+        }) ;
         Schema::dropIfExists('users_meetings');
     }
 }

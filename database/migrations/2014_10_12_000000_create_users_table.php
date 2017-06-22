@@ -15,8 +15,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('username')->unique();
+            $table->string('name');
             $table->string('password');
             $table->string('phone');
             $table->string('is_remove')->nullable();
@@ -35,6 +35,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_dept_id_foreign');
+        });
         Schema::dropIfExists('users');
     }
 }
