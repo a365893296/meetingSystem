@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class room extends Model
+class Room extends Model
 {
     protected $table = 'meetingrooms';
     protected $primaryKey = "id";
+    public $timestamps = false ;
 
     public function belongsToMeeting()
     {

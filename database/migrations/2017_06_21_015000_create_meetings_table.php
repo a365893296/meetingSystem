@@ -18,10 +18,10 @@ class CreateMeetingsTable extends Migration
             $table->string('topic');
             $table->string('dept');
             $table->dateTime('begin_time');
-            $table->string('duration');
+            $table->string('duration')->nullable();
             $table->string('feature');
-            $table->string('contents');
-            $table->string('file');
+            $table->string('contents')->nullable();
+            $table->string('file')->nullable();
             $table->string('master');
             $table->string('host');
             $table->timestamps();

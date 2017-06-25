@@ -22,3 +22,25 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\App\Models\Meeting::class, function (Faker\Generator $faker) {
+
+    return [
+        'topic' => $faker->title,
+        'dept' => str_random(1),
+        'begin_time' => $faker->dateTime,
+        'duration' => str_random(1),
+        'feature' => 'sss',
+        'contents' => $faker->paragraph,
+        'file' => null,
+        'master' => $faker->userName,
+        'host' => $faker->address
+    ];
+
+});
+
+$factory->define(\App\Models\Room::class, function (Faker\Generator $faker) {
+    return [
+        'site' => $faker->address
+    ];
+});

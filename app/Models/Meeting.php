@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class meeting extends Model
+class Meeting extends Model
 {
     protected $table = "meetings";
     protected $primaryKey = "id";
