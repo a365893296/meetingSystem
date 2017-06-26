@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
-
+Route::post('/login','Meeting\AuthController@login');
 Route::get('/home', 'HomeController@index');
 Route::post('/getTableData','Meeting\MeetingController@getTableData');
+

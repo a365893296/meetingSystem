@@ -13,11 +13,14 @@ use App\Http\Controllers\Controller;
  */
 class MeetingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
     //
     public function getTableData(Request $request){
         $meetings = Meeting::all() ;
-
-
         return response()->json($meetings)->setStatusCode(200);
 
     }
