@@ -42,11 +42,42 @@ class MeetingController extends Controller
 
 //        return response()->json(['data'=> $meetings]);
 //        return response()->json($request);
-        $meetings = Meeting::where([['id', '>', 1],])->get();
-        $data = $request->all() ;
-        
 
-        return response()->json($request) ;
+    //    "topic": "",
+    //    "meeting_time": "",
+    //    "meeting_level": "all",
+    //    "meeting_state": "all",
+    //    "meeting_feature": "all"
+
+
+        $meetings = Meeting::where([['id', '>', 1],])->get();
+        $data = $request->get('data');
+//        return response()->json($data);
+        $currentPage = $request->get('currentPage');
+        if ($data['topic'] != '') {
+            $where['topic'] = $data['topic'];
+        }
+        if ($data['meeting_time'] != null) {
+            $where['begin_time'] = $data['meeting_time'][0];
+            $where['last_time'] = $data['meeting_time'][1];
+        }
+        if ($data['meeting_level'] != 'all') {
+            $where['level'] = $data['meeting_level'];
+        }
+        if ($data['meeting_state'] != 'all') {
+            $where['state'] = $data['meeting_state'];
+        }
+        if ($data['meeting_feature'] != 'all') {
+            $where['feature'] = $data['meeting_feature'];
+        }
+
+//        dd($where);
+        //        $where['topic'] = ($data['topic']!='') ? $data['topic'] : 0;
+
+        return response()->json([
+            'data' =>  $where ,
+//            'curretPage' => $currentPage
+        ]);
 
         return response()->json([
             'status' => 'success',
