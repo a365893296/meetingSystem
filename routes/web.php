@@ -14,8 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Auth::routes();
-Route::post('/login','Meeting\AuthController@login');
+//Auth::routes();
+
 Route::get('/home', 'HomeController@index');
-Route::post('/getTableData','Meeting\MeetingController@getTableData');
+
+
+Route::group(['namespace' => 'Meeting'], function () {
+    Route::post('/login', 'AuthController@login');
+    Route::post('/regist', 'AuthController@regist');
+    Route::get('/logout', 'AuthController@logout');
+
+});
+
+Route::group(['namespace' => 'Meeting'], function () {
+    Route::post('getTableData' , 'MeetingController@getTableData') ;
+});
 
