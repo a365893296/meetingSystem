@@ -18,7 +18,7 @@ class CreateMeetingsRoomsTable extends Migration
             $table->increments('id');
             $table->integer('meeting_id')->unsigned();
             $table->integer('room_id')->unsigned();
-//            $table->enum('stat' ,[0,1])->comments('meeting_room stat')  ;
+//            $table->enum('state' ,[0,1])->comments('meeting_room state')  ;
         });
 
         Schema::table('meetings_meetingroom', function (Blueprint $table) {

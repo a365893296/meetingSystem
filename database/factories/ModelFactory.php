@@ -11,6 +11,8 @@
 |
 */
 
+//alter Faker\Factory.php  const DEFAULT_LOCALE = 'zh_CN';
+
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
@@ -23,18 +25,27 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(\App\Models\dept::class, function(Faker\Generator $faker){
+    return [
+       'name'=>$faker->domainName ,
+    ];
+});
+
 $factory->define(\App\Models\Meeting::class, function (Faker\Generator $faker) {
 
     return [
-        'topic' => $faker->title,
-        'dept' => str_random(1),
+        'topic' =>$faker->word,
+//        'dept_id' => $faker->numberBetween(1,10),
         'begin_time' => $faker->dateTime,
-        'duration' => str_random(1),
-        'feature' => 'sss',
+        'duration' => $faker->numberBetween(30,600),
+        'feature' =>$faker->randomElement(['common','phone','net']),
+        'level' => $faker->randomElement(['high','middle','common']),
+        'state' => $faker->randomElement(['prepare','ing','complete','cancel']),
         'contents' => $faker->paragraph,
         'file' => null,
         'master' => $faker->userName,
-        'host' => $faker->address
+        'host' => "$faker->address",
+        'room_id' => $faker->numberBetween(1,20),
     ];
 
 });

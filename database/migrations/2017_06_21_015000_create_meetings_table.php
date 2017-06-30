@@ -16,14 +16,17 @@ class CreateMeetingsTable extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('topic');
-            $table->string('dept');
+//            $table->integer('dept_id');
             $table->dateTime('begin_time');
-            $table->string('duration')->nullable();
-            $table->string('feature');
+            $table->integer('duration')->nullable();
+            $table->string('feature')->default('common');
+            $table->string('state')->default('prepare') ;
+            $table->string('level')->default('common') ;
             $table->string('contents')->nullable();
             $table->string('file')->nullable();
             $table->string('master');
             $table->string('host');
+            $table->string('room_id');
             $table->timestamps();
         });
     }
