@@ -34,7 +34,7 @@ class AuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function regist(Request $request)
+    public function register(Request $request)
     {
         $this->validate($request, [
             'username' => 'required|min:6',
@@ -60,7 +60,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => 'success',
             'status_code' => 200,
-            'isregist' => true
+            'isRegister' => true
         ]);
     }
 
