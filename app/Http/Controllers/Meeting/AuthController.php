@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Meeting;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class AuthController
@@ -37,26 +39,28 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|min:6',
-            'name' => 'required',
-            'password' => 'required'
+            'username' => 'bail|required|min:4',
+            'phone' => 'bail|required',
+            'password' => 'bail|required'
         ]);
 
-//        if (!$flag) {
-//            return response()->json([
-//                'status' => 'failed',
-//                'status_code' => 403,
-//                'isregist' => false
-//            ]);
-//        }
+        if (User::find(['username' => $request->get('username')])) {
+            return response()->json([
+                'status' => 'failed',
+                'status_code' => '403',
+                'isRegister' => false,
+                'message' => '用户名已存在!'
+            ]);
+        }
 
-        Auth::create([
+        User::create([
             'username' => $request->get('username'),
-            'password' => $request->get('password'),
             'phone' => $request->get('phone'),
-            'name' => $request->get('name')
+            'password' => bcrypt($request->get('password')),
+//            'name' => $request->get('name')
         ]);
 
+        Auth::attempt(['username'=> $request->get('username'),'password'=>$request->get('password')]);
         return response()->json([
             'status' => 'success',
             'status_code' => 200,
@@ -69,10 +73,15 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        if(Auth::check()){
-            Auth::logout() ;
+        if (Auth::check()) {
+            Auth::logout();
         }
 
-        return redirect('/') ;
+        return response()->json([
+            'status' => 'success' ,
+            'status_code' => '200' ,
+            'isLogout' => 'true' ,
+            'message' => 'exit'
+        ]);
     }
 }

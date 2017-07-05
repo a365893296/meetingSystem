@@ -41,7 +41,7 @@ $factory->define(\App\Models\Meeting::class, function (Faker\Generator $faker) {
         'feature' =>$faker->randomElement(['common','phone','net']),
         'level' => $faker->randomElement(['high','middle','common']),
         'state' => $faker->randomElement(['prepare','ing','complete','cancel']),
-        'contents' => $faker->paragraph,
+        'contents' => $faker->text(30),
         'file' => null,
         'master' => $faker->userName,
         'host' => "$faker->address",
