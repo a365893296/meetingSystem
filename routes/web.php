@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['namespace' => 'Meeting'], function () {
     Route::post('/login', 'AuthController@login');
     Route::post('/register', 'AuthController@register');
-    Route::get('/logout', 'AuthController@logout');
+    Route::post('/logout', 'AuthController@logout');
 
 });
 
