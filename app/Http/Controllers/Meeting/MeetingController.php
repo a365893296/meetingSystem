@@ -104,4 +104,10 @@ class MeetingController extends Controller
 
     }
 
+    public function createMeeting(Request $request)
+    {
+
+    }
+
+
 }

@@ -12,6 +12,6 @@ class MeetingTableSeeder extends Seeder
     public function run()
     {
         //
-        factory('App\Models\Meeting', 50)->create() ;
+        factory('App\Models\Meeting', 150)->create() ;
     }
 }

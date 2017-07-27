@@ -14,7 +14,7 @@ class CreateMeetingRoomTable extends Migration
     public function up()
     {
         //会议室
-        Schema::create('meetingrooms', function (Blueprint $table) {
+        Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('site');
 //            $table->enum ('stat',[0,1]);
@@ -29,6 +29,6 @@ class CreateMeetingRoomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meetingrooms');
+        Schema::dropIfExists('rooms');
     }
 }
