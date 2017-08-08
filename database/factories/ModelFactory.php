@@ -50,19 +50,33 @@ $factory->define(\App\Models\Meeting::class, function (Faker\Generator $faker) {
 
 });
 
+
 $factory->define(\App\Models\Room::class, function (Faker\Generator $faker) {
     return [
         'site' => $faker->address
     ];
 });
 
-$factory->define(\App\Models\dept::class, function (Faker\Generator $faker) {
-    //todo 填充静态数据
+/*
+ * 工厂模式需要return array ;
+ * 否则会报错
+ * */
 
+//$factory->define(\App\Models\dept::class, function (Faker\Generator $faker) {
+//
+//
 //    $depts = [
-//        '业务部','工程部','生产部','管理部','销售部','市场开发部','售后服务部','' ,
+//        '业务部', '工程部', '生产部',
+//        '管理部', '销售部', '市场开发部',
+//        '售后服务部', '设计部', '物料部',
+//        '统计部', '人力资源部' , '总裁办',
 //    ];
-    return [
-
-    ];
-});
+//
+//    for ($i = 0; $i < count($depts); $i++) {
+//
+//        \App\Models\dept::create([
+//            'name' => $depts[$i]
+//        ]);
+//    }
+//
+//});

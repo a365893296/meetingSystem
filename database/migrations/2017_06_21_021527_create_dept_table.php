@@ -16,7 +16,7 @@ class CreateDeptTable extends Migration
         Schema::create('dept', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('parent_id')->comments('父部门ID') ;
+            $table->integer('parent_id')->comments('父部门ID')->nullable();
         });
 
 
@@ -28,7 +28,8 @@ class CreateDeptTable extends Migration
      * @return void
      */
     public function down()
-    {Schema::disableForeignKeyConstraints();
+    {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('dept');
     }
 }

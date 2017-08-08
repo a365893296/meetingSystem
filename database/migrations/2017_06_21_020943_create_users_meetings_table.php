@@ -20,8 +20,8 @@ class CreateUsersMeetingsTable extends Migration
 
         });
         //
-        Schema::table('users_meetings',function(Blueprint $table){
-            $table->foreign('user_id')->references('id')->on('users') ;
+        Schema::table('users_meetings', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('meeting_id')->references('id')->on('meetings');
         });
 
@@ -34,10 +34,10 @@ class CreateUsersMeetingsTable extends Migration
      */
     public function down()
     {
-        Schema::table('users_meetings',function(Blueprint $table){
-            $table->dropForeign('users_meetings_user_id_foreign') ;
-            $table->dropForeign('users_meetings_meeting_id_foreign') ;
-        }) ;
+        Schema::table('users_meetings', function (Blueprint $table) {
+            $table->dropForeign('users_meetings_user_id_foreign');
+            $table->dropForeign('users_meetings_meeting_id_foreign');
+        });
         Schema::dropIfExists('users_meetings');
     }
 }

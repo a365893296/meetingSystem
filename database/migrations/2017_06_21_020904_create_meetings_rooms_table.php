@@ -23,7 +23,7 @@ class CreateMeetingsRoomsTable extends Migration
 
         Schema::table('meetings_meetingroom', function (Blueprint $table) {
             $table->foreign('meeting_id')->references('id')->on('meetings');
-            $table->foreign('room_id')->references('id')->on('meetingrooms');
+            $table->foreign('room_id')->references('id')->on('rooms');
         });
     }
 
