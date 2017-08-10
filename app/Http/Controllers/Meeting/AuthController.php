@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
  */
 class AuthController extends Controller
 {
-
+    //AuthController 只负责用户登录注册验证等
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

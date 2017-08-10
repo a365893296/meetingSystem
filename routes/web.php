@@ -26,8 +26,11 @@ Route::group(['namespace' => 'Meeting'], function () {
 });
 
 Route::group(['namespace' => 'Meeting'], function () {
-    Route::post('getTableData' , 'MeetingController@getTableData') ;
-    Route::get('getDept' ,'DeptController@getDept') ;
+    Route::post('getTableData', 'MeetingController@getTableData');
+    Route::get('getDept', 'DeptController@getDept');
 });
 
+Route::group(['namespace' => 'Meeting'], function () {
+    Route::post('getUsers', 'UserController@getUsers');
+});
 
