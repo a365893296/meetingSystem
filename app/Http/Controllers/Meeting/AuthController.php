@@ -44,7 +44,10 @@ class AuthController extends Controller
             'password' => 'bail|required'
         ]);
 
-        if (User::find(['username' => $request->get('username')])) {
+//        $boolean = User::where('username',$request->get('username'))->first();
+//        echo  $boolean ;
+//        dump($request->all());
+        if(User::where('username',$request->get('username'))->first()) {
             return response()->json([
                 'status' => 'failed',
                 'status_code' => '403',

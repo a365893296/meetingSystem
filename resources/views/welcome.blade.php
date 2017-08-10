@@ -2,14 +2,14 @@
 <html>
 <head>
     <meta charset=utf-8>
-    <meta name="csrf_token" content="{{ csrf_token() }}">
     <title></title>
-    <link href=/static/css/app.4ac506057ce196de64ce1f0c040c606c.css rel=stylesheet>
+    <meta name="csrf_token" content="{{ csrf_token() }}">
+    <link href=/static/css/app.f00a905f3ff72784b18f43e155a4733b.css rel=stylesheet>
 </head>
 <body>
 <div id=app></div>
-<script type=text/javascript src=/static/js/manifest.0eb477602e551bc4d782.js></script>
-<script type=text/javascript src=/static/js/vendor.aac8e6016e850ea748e0.js></script>
-<script type=text/javascript src=/static/js/app.5da64a606ef70084f663.js></script>
+<script type=text/javascript src=/static/js/manifest.62f5afc7ccc9e30e80af.js></script>
+<script type=text/javascript src=/static/js/vendor.41d3db00807e43e44a55.js></script>
+<script type=text/javascript src=/static/js/app.19ce345a511aba9aa002.js></script>
 </body>
 </html>
