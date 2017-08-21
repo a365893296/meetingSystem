@@ -10,8 +10,8 @@ class Room extends Model
     protected $primaryKey = "id";
     public $timestamps = false ;
 
-    public function belongsToMeeting()
-    {
-        return $this->belongsTo('App\Models\Meeting','meeting_id','id');
-    }
+//    public function belongsToMeeting()
+//    {
+//        return $this->belongsTo('App\Models\Meeting','meeting_id','id');
+//    }
 }

@@ -13,13 +13,20 @@ class UserController extends Controller
     public function getUsers(Request $request)
     {
 //        dd($request->all());
-        $id = $request->get('id') ;
-        $users = User::where('dept_id' , $id)->get() ;
+        if (!$request->has('id')) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'error -> getUsers'
+            ]);
+        }
+
+        $id = $request->get('id');
+        $users = User::where('dept_id', $id)->get();
 //        return $users;
         return response()->json([
-            'status' => 'success' ,
-            'status_code' => '200' ,
+            'status' => 'success',
+            'status_code' => '200',
             'users' => $users
-        ]) ;
+        ]);
     }
 }

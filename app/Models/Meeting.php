@@ -9,9 +9,9 @@ class Meeting extends Model
     protected $table = "meetings";
     protected $primaryKey = "id";
 
-    public function hasOneRoom()
+    public function room()
     {
-        return $this->hasOne('App\Models\Room', 'room_id', 'id');
+        return $this->hasOne('App\Models\Room', 'id', 'room_id');
     }
 
 }

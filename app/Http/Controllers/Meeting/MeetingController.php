@@ -32,22 +32,7 @@ class MeetingController extends Controller
      */
     public function getTableData(Request $request)
     {
-//        $meetings = Meeting::all();
-//        $meetings = Meeting::find(1);
-//        if(Auth::check()){
-//            return response()->json('auth is check');
-//        }else{
-//            return response()->json('xxxx');
-//        }
 
-//        return response()->json(['data'=> $meetings]);
-//        return response()->json($request);
-
-        //    "topic": "",
-        //    "meeting_time": "",
-        //    "meeting_level": "all",
-        //    "meeting_state": "all",
-        //    "meeting_feature": "all"
 //        return response()->json($request->all());
         $meetings = new Meeting();
 
@@ -76,13 +61,6 @@ class MeetingController extends Controller
         }
         $meetings = $meetings->take($pageSize)->get();
 
-//        return response()->json([
-//            'meeting' => $meetings,
-//            'curretPage' => $currentPage,
-//            'total' => $total,
-//            'pageSize' => $pageSize
-//        ]);
-
         return response()->json([
             'status' => 'success',
             'status_code' => '200',
@@ -106,7 +84,9 @@ class MeetingController extends Controller
 
     public function createMeeting(Request $request)
     {
-
+        //todo 
+        $request->all();
+        dd($request->all());
     }
 
 
