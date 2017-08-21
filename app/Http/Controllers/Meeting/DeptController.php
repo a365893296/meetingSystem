@@ -68,8 +68,6 @@ class DeptController extends Controller
             }
         }
 
-//        dd($data);
-
         return response()->json([
             'status' => 'success',
             'status_code' => '200',

@@ -32,8 +32,6 @@ class MeetingController extends Controller
      */
     public function getTableData(Request $request)
     {
-
-//        return response()->json($request->all());
         $meetings = new Meeting();
 
         $data = $request->get('data');
@@ -84,7 +82,7 @@ class MeetingController extends Controller
 
     public function createMeeting(Request $request)
     {
-        //todo 
+        //todo
         $request->all();
         dd($request->all());
     }
