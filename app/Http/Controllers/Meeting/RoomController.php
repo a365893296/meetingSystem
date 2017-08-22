@@ -32,7 +32,7 @@ class RoomController extends Controller
             $begintime = strtotime($meeting['begin_time']);
             $endtime = strtotime($meeting['begin_time']) + $meeting['duration'] * 60;
             //如果开始时间或者结束时间在选择的区间内 则将room_id加入$fullRooms
-            if (($endtime > $meetingBegin && $endtime < $meetingEnd) || ($begintime > $meetingBegin && $begintime < $meetingEnd)) {
+            if (($endtime >= $meetingBegin && $endtime <= $meetingEnd) || ($begintime >= $meetingBegin && $begintime <= $meetingEnd)) {
                 array_push($fullRooms, $meeting['room_id']);
             }
         }

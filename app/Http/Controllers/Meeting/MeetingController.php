@@ -6,6 +6,7 @@ use App\Models\Meeting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 
@@ -82,9 +83,41 @@ class MeetingController extends Controller
 
     public function createMeeting(Request $request)
     {
-        //todo
-        $request->all();
-        dd($request->all());
+        $data = $request->get('data');
+
+        $meeting = New Meeting;
+        $meeting['topic'] = $data['topic'];
+        $meeting['begin_time'] = date('Y-m-d H:i:s', strtotime($request->get('meeting_time')));
+        $meeting['feature'] = $data['meeting_feature'];
+        $meeting['level'] = $data['meeting_level'];
+        $meeting['contents'] = $data['content'];
+        $meeting['host'] = $data['host'];
+        $meeting['master'] = $data['master'];
+        $meeting['duration'] = $data['duration'];
+        $meeting['room_id'] = $data['site'];
+
+        if(!$meeting->save()){
+            return response()->json([
+                'status' => 'failed',
+                'status_code' => '403',
+                'isSuccess' => '0'
+            ]);
+        }
+
+        $participant = $data['participant'];
+
+        $insert = array();
+        for ($i = 0; $i < count($participant); $i++) {
+            array_push($insert, ['user_id' => $participant[$i], 'meeting_id' => $meeting->id]);
+        }
+
+        DB::table('users_meetings')->insert($insert);
+        return response()->json([
+            'status' => 'success',
+            'status_code' => '200',
+            'isSuccess'=>'1',
+        ]);
+
     }
 
 
