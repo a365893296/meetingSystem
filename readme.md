@@ -1,5 +1,5 @@
 # 会议管理系统 MeetingSystem
-###### 项目是结合vue.js以及PHP、Laravel5.3框架、mysql写成的。
+###### 项目是结合vue.js以及PHP、Laravel5.3框架、mysql完成的。
 
 前端是vue.js结合elementUI,axios完成。由npm编译成静态文件。  
 后台是由PHP、Laravel5.3结合MySQL完成。实现前后端分离。
