@@ -21,11 +21,10 @@ class MeetingController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('guest');
-//        $this->middleware('auth') ;
-    }
+        $this->middleware('auth') ;
 
-    //
+//        $this->middleware('guest');
+    }
 
     /**
      * @param Request $request
@@ -81,6 +80,10 @@ class MeetingController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function createMeeting(Request $request)
     {
         $data = $request->get('data');

@@ -37,6 +37,7 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
+    //改用username字段做用户验证
     public function username()
     {
         return 'username';

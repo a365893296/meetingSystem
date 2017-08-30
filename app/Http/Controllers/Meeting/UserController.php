@@ -6,6 +6,10 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers\Meeting
+ */
 class UserController extends Controller
 {
     //UserController 负责users表的数据获取等

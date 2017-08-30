@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Meeting'], function () {
 
 });
 
-Route::group(['namespace' => 'Meeting'], function () {
+Route::group(['namespace' => 'Meeting','middleware' => 'auth'], function () {
     Route::post('getTableData', 'MeetingController@getTableData');
     Route::get('getDept', 'DeptController@getDept');
     Route::post('getUsers', 'UserController@getUsers');

@@ -36,6 +36,9 @@ class DeptController extends Controller
 
     }
 
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function formatDept()
     {
 

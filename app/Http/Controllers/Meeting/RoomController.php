@@ -7,6 +7,10 @@ use App\Models\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class RoomController
+ * @package App\Http\Controllers\Meeting
+ */
 class RoomController extends Controller
 {
     //获取空的会议室
