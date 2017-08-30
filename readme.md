@@ -24,11 +24,11 @@
 
 ```
 └── Meeting    
-    ├── AuthController.php          //只负责用户登录注册验证等    
-    ├── DeptController.php		    //返回所有部门  
-    ├── MeetingController.php		//查询、添加会议  
-    ├── RoomController.php		    //返回会议室信息  
-    └── UserController.php		    //返回用户信息  
+    ├── AuthController.php     //只负责用户登录注册验证等    
+    ├── DeptController.php     //返回所有部门  
+    ├── MeetingController.php     //查询、添加会议  
+    ├── RoomController.php     //返回会议室信息  
+    └── UserController.php     //返回用户信息  
 
 ```
 
