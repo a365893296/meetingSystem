@@ -34,9 +34,9 @@
 
 ### 项目截图
 查询会议截图：
-![alt text](/Users/nikejin/Desktop/meetingSystem1.jpg "查询会议截图")
+![查询会议](http://ovi099wlz.bkt.clouddn.com/meetingSystem1.jpg "查询会议截图")
 添加会议截图：
-![alt text](/Users/nikejin/Desktop/meetingSystem2.png "添加会议截图")
+![添加会议](http://ovi099wlz.bkt.clouddn.com/meetingSystem2.png "添加会议截图")
 
 ## 项目总结
 本项目是我对vue.js以及Laravel框架的一次探索。在实践中发现了很多看文档时遇不到以及忽略的问题，然后通过努力解决了。本次实践加深了我对vue.js以及Laravel框架的理解。
