@@ -1,40 +1,43 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+#会议管理系统 MeetingSystem
+######项目是结合vue.js以及PHP、Laravel5.3框架、mysql写成的。
+前端是vue.js结合elementUI,axios完成。由npm编译成静态文件。  
+后台是由PHP、Laravel5.3结合MySQL完成。实现前后端分离。
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+---
+[点击查看前端项目](https://github.com/a365893296/meeting)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+ 
+###目前本系统实现的功能 
+* 用户的登录注册   
+* 会议的查询
+ + 条件查询
+ + 模糊查询
+ + 利用element UI的datatable和axios结合实现分页
+* 添加会议
+ + 添加会议时能根据选取时间查询出空的会议室
+ + 添加会议时能根据部门选择参与会议人员
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+###项目结构
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+```
+└── Meeting    
+    ├── AuthController.php          //只负责用户登录注册验证等    
+    ├── DeptController.php		    //返回所有部门  
+    ├── MeetingController.php		//查询、添加会议  
+    ├── RoomController.php		    //返回会议室信息  
+    └── UserController.php		    //返回用户信息  
 
-## Learning Laravel
+```
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+###项目截图
+查询会议截图：
+![alt text](/Users/nikejin/Desktop/meetingSystem1.jpg "查询会议截图")
+添加会议截图：
+![alt text](/Users/nikejin/Desktop/meetingSystem2.png "添加会议截图")
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+##项目总结
+本项目是我对vue.js以及Laravel框架的一次探索。在实践中发现了很多看文档时遇不到以及忽略的问题，然后通过努力解决了。本次实践加深了我对vue.js以及Laravel框架的理解。
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
