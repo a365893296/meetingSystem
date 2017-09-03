@@ -4,10 +4,8 @@
 前端是vue.js结合elementUI,axios完成。由npm编译成静态文件。  
 后台是由PHP、Laravel5.3结合MySQL完成。实现前后端分离。
 
----
-[点击查看前端项目](https://github.com/a365893296/meeting)
 
----
+[点击查看前端项目](https://github.com/a365893296/meeting)
 
  
 ### 目前本系统实现的功能 
