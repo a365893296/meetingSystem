@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Meeting;
 
-use App\Models\dept;
+use App\Models\Dept;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,7 +10,7 @@ class DeptController extends Controller
 {
     public function getDept()
     {
-        $depts = dept::all();
+        $depts = Dept::all();
 
         $data = null;
         for ($i = 0; $i < count($depts); $i++) {
@@ -46,7 +46,7 @@ class DeptController extends Controller
             完成后，在getDept调用该方法
         */
 
-        $depts = dept::all();
+        $depts = Dept::all();
 
         $data = null;
 //        return  $depts[1]->name;

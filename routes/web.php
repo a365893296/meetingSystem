@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Meeting','middleware' => 'auth'], function () {
     Route::post('getUsers', 'UserController@getUsers');
     Route::post('getEmptyRooms','RoomController@getEmptyRooms') ;
     Route::post('createMeeting','MeetingController@createMeeting') ;
+    Route::post('getUserInfo','UserController@getUserInfo') ;
 });
 
 

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Mockery\Exception;
 
 /**
  * Class AuthController
@@ -22,13 +23,21 @@ class AuthController extends Controller
     {
         $username = $request->get('username');
         $password = $request->get('password');
-        $user = auth()->attempt(
+
+        $isLogin = Auth::attempt(
             [
                 'username' => $username,
                 'password' => $password
             ], true);
-//        dd($user);
-        return response()->json(['islogin' => $user]);
+
+        $user = Auth::user();
+
+        return response()->json([
+            'status' => 'success',
+            'status_code' => '200',
+            'islogin' => $isLogin,
+            'user' => $user,
+        ]);
 
     }
 
@@ -38,13 +47,31 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-        $this->validate($request, [
-            'username' => 'bail|required|min:4',
-            'phone' => 'bail|required',
-            'password' => 'bail|required'
-        ]);
+        try {
 
-        if(User::where('username',$request->get('username'))->first()) {
+            $this->validate($request, [
+                'username' => 'bail|required|min:4',
+                'phone' => 'bail|required',
+                'password' => 'bail|required'
+            ]);
+
+            $username = $request->get('username');
+            $phone = $request->get('phone');
+            $password = $request->get('password');
+
+        } catch (Exception $exception) {
+
+            return response()->json([
+                'status' => 'failed',
+                'status_code' => '403',
+                'isRegister' => false,
+                'message' => $exception->getMessage(),
+            ]);
+
+        }
+
+
+        if (User::where('username', $username)->first()) {
             return response()->json([
                 'status' => 'failed',
                 'status_code' => '403',
@@ -54,13 +81,13 @@ class AuthController extends Controller
         }
 
         User::create([
-            'username' => $request->get('username'),
-            'phone' => $request->get('phone'),
-            'password' => bcrypt($request->get('password')),
+            'username' => $username,
+            'phone' => $phone,
+            'password' => bcrypt($password),
 //            'name' => $request->get('name')
         ]);
 
-        Auth::attempt(['username'=> $request->get('username'),'password'=>$request->get('password')]);
+        Auth::attempt(['username' => $username, 'password' => $password]);
         return response()->json([
             'status' => 'success',
             'status_code' => 200,
@@ -78,9 +105,9 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'status' => 'success' ,
-            'status_code' => '200' ,
-            'isLogout' => 'true' ,
+            'status' => 'success',
+            'status_code' => '200',
+            'isLogout' => 'true',
             'message' => 'exit'
         ]);
     }

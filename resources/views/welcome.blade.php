@@ -8,8 +8,8 @@
 </head>
 <body>
 <div id=app></div>
-<script type=text/javascript src=/static/js/manifest.9ccd8708eca733ba4f6b.js></script>
-<script type=text/javascript src=/static/js/vendor.b12349b9e5facc45e42c.js></script>
-<script type=text/javascript src=/static/js/app.5f894be8deba8e0434eb.js></script>
+<script type=text/javascript src=/static/js/manifest.8ffeaa1631e124434668.js></script>
+<script type=text/javascript src=/static/js/vendor.a0701c69a7fb5899b383.js></script>
+<script type=text/javascript src=/static/js/app.bd976cc691cb96b48c11.js></script>
 </body>
 </html>
